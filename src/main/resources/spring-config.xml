@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--    Controller -->
+    <bean name="mainController" class="org.example.controller.MainController">
+        <property name="cardRepository" ref="cardRepository"/>
+        <property name="profileRepository" ref="profileRepository"/>
+        <property name="profileService" ref="profileService"/>
+    </bean>
+
+    <bean name="userController" class="org.example.controller.UserController">
+        <property name="cardUtil" ref="cardUtil"/>
+        <property name="cardService" ref="cardService"/>
+        <property name="transactionService" ref="transactionService"/>
+    </bean>
+    
+    <bean name="adminController" class="org.example.controller.AdminController">
+        <property name="cardUtil" ref="cardUtil"/>
+        <property name="cardService" ref="cardService"/>
+        <property name="terminalUtil" ref="terminalUtil"/>
+        <property name="terminalService" ref="terminalService"/>
+        <property name="profileService" ref="profileService"/>
+        <property name="profileUtil" ref="profileUtil"/>
+        <property name="transactionService" ref="transactionService"/>
+    </bean>
+    <!--    Util   -->
+    <bean name="cardUtil" class="org.example.util.CardUtil">
+        <property name="cardRepository" ref="cardRepository"/>
+        <property name="cardService" ref="cardService"/>
+    </bean>
+    
+    <bean name="profileUtil" class="org.example.util.ProfileUtil">
+        <property name="profileService" ref="profileService"/>
+    </bean>
+    
+    <bean name="terminalUtil" class="org.example.util.TerminalUtil">
+        <property name="terminalService" ref="terminalService"/>
+    </bean>
+    <!--    Service -->
+    <bean name="cardService" class="org.example.service.CardService">
+        <property name="cardRepository" ref="cardRepository"/>
+    </bean>
+    
+    <bean name="profileService" class="org.example.service.ProfileService">
+        <property name="mainController" ref="mainController"/>
+        <property name="adminController" ref="adminController"/>
+        <property name="userController" ref="userController"/>
+        <property name="profileRepository" ref="profileRepository"/>
+    </bean>
+    
+    <bean name="terminalService" class="org.example.service.TerminalService">
+        <property name="terminalRepository" ref="terminalRepository"/>
+    </bean>
+    <bean name="transactionService" class="org.example.service.TransactionService">
+        <property name="cardRepository" ref="cardRepository"/>
+        <property name="terminalRepository" ref="terminalRepository"/>
+        <property name="transactionRepository" ref="transactionRepository"/>
+    </bean>
+    <!--    Repository  -->
+    <bean name="cardRepository" class="org.example.repository.CardRepository">
+    </bean>
+
+    <bean name="profileRepository" class="org.example.repository.ProfileRepository">
+    </bean>
+
+    <bean name="terminalRepository" class="org.example.repository.TerminalRepository">
+    </bean>
+
+    <bean name="transactionRepository" class="org.example.repository.TransactionRepository">
+    </bean>
+
+
+
+
+</beans>
