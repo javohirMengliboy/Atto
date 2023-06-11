@@ -1,7 +1,8 @@
 package org.example.repository;
 
+import org.springframework.stereotype.Repository;
 import java.sql.*;
-
+@Repository
 public class DBRepository {
     public void createProfileTable(){
         try {

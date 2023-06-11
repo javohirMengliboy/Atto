@@ -1,7 +1,6 @@
 package org.example.dto;
 
 import org.example.enums.TransactionType;
-
 import java.time.LocalDateTime;
 
 public class Transaction {

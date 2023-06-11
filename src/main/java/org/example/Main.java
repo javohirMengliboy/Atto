@@ -1,18 +1,13 @@
 package org.example;
 
-import org.example.container.ComponentContainer;
+import org.example.config.SpringConfig;
 import org.example.controller.MainController;
-import org.example.util.CardUtil;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeParseException;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Main {
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
+        ApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
         MainController mainController = (MainController) context.getBean("mainController");
         mainController.start();
     }

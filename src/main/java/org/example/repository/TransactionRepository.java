@@ -1,12 +1,13 @@
 package org.example.repository;
 import org.example.dto.Transaction;
 import org.example.enums.TransactionType;
-
+import org.springframework.stereotype.Repository;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class TransactionRepository {
     public boolean saveReFill(Long number, Double amount) {
         Connection connection = DBConnection.getConnection();
@@ -215,12 +216,6 @@ public class TransactionRepository {
         String sql = "call make_transaction(%s,'%s',%s,%s)";
         sql = String.format(sql, number,code,amount,attoNumber);
         try {
-//            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-//            preparedStatement.setLong(1,number);
-//            preparedStatement.setDouble(2,amount);
-//            preparedStatement.setString(3,code);
-//            preparedStatement.setDouble(4,attoNumber);
-//            preparedStatement.executeUpdate(sql);
             Statement statement = connection.createStatement();
             statement.executeUpdate(sql);
             return true;

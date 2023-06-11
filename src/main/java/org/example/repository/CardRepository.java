@@ -4,12 +4,13 @@ import org.example.container.ComponentContainer;
 import org.example.dto.Card;
 import org.example.dto.Profile;
 import org.example.enums.CardStatus;
+import org.springframework.stereotype.Repository;
 
 import java.sql.*;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class CardRepository {
 
     public boolean createAttoCard(Card card){
@@ -251,26 +252,6 @@ public class CardRepository {
         }
     }
 
-//    public boolean reFill(Long number, Double amount) {
-//        Connection connection = DBConnection.getConnection();
-//        String sql = "update card set balance = ? where number = ?";
-//        try {
-//            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-//            preparedStatement.setDouble(1,amount);
-//            preparedStatement.setLong(2,number);
-//            preparedStatement.executeUpdate();
-//            return true;
-//        } catch (SQLException e) {
-//            return false;
-//        }finally {
-//            try {
-//                connection.close();
-//            } catch (SQLException e) {
-//                throw new RuntimeException(e);
-//            }
-//        }
-//    }
-
     public Card getAttoCard() {
         Connection connection = DBConnection.getConnection();
         try {
@@ -297,11 +278,4 @@ public class CardRepository {
         }
     }
 
-//    public Profile getProfile() {
-//        return profile;
-//    }
-//
-//    public void setProfile(Profile profile) {
-//        this.profile = profile;
-//    }
 }

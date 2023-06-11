@@ -1,9 +1,11 @@
 package org.example.repository;
 
+import org.springframework.stereotype.Repository;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
+@Repository
 public class DBConnection {
     public static Connection getConnection(){
         Connection connection = null;

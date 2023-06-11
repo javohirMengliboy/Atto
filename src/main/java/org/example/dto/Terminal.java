@@ -1,7 +1,6 @@
 package org.example.dto;
 
 import org.example.enums.TerminalStatus;
-
 import java.time.LocalDateTime;
 
 public class Terminal {

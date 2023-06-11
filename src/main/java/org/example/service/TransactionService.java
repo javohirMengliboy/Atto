@@ -5,20 +5,23 @@ import org.example.dto.Card;
 import org.example.dto.Profile;
 import org.example.dto.Terminal;
 import org.example.dto.Transaction;
-import org.example.enums.TransactionType;
 import org.example.repository.CardRepository;
 import org.example.repository.TerminalRepository;
 import org.example.repository.TransactionRepository;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.List;
 
+@Service
 public class TransactionService {
+    @Autowired
     private CardRepository cardRepository;
+    @Autowired
     private TerminalRepository terminalRepository;
+    @Autowired
     private TransactionRepository transactionRepository;
     public void reFill(Profile profile) {
         List<Card> cardList = cardRepository.getCardList(profile);
@@ -237,29 +240,5 @@ public class TransactionService {
         }
 
         transactionList.forEach(System.out::println);
-    }
-
-    public CardRepository getCardRepository() {
-        return cardRepository;
-    }
-
-    public void setCardRepository(CardRepository cardRepository) {
-        this.cardRepository = cardRepository;
-    }
-
-    public TerminalRepository getTerminalRepository() {
-        return terminalRepository;
-    }
-
-    public void setTerminalRepository(TerminalRepository terminalRepository) {
-        this.terminalRepository = terminalRepository;
-    }
-
-    public TransactionRepository getTransactionRepository() {
-        return transactionRepository;
-    }
-
-    public void setTransactionRepository(TransactionRepository transactionRepository) {
-        this.transactionRepository = transactionRepository;
     }
 }

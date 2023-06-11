@@ -4,10 +4,16 @@ import org.example.container.ComponentContainer;
 import org.example.service.CardService;
 import org.example.service.TransactionService;
 import org.example.util.CardUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
+@Controller
 public class UserController {
+    @Autowired
     private CardUtil cardUtil;
+    @Autowired
     private CardService cardService;
+    @Autowired
     private TransactionService transactionService;
 
     public void userPage(){
@@ -41,30 +47,6 @@ public class UserController {
                 6. Transaction List
                 7. Make Payment
                 """);
-    }
-
-    public CardUtil getCardUtil() {
-        return cardUtil;
-    }
-
-    public void setCardUtil(CardUtil cardUtil) {
-        this.cardUtil = cardUtil;
-    }
-
-    public CardService getCardService() {
-        return cardService;
-    }
-
-    public void setCardService(CardService cardService) {
-        this.cardService = cardService;
-    }
-
-    public TransactionService getTransactionService() {
-        return transactionService;
-    }
-
-    public void setTransactionService(TransactionService transactionService) {
-        this.transactionService = transactionService;
     }
 
 

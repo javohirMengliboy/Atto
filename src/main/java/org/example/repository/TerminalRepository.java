@@ -1,14 +1,15 @@
 package org.example.repository;
 
-import org.example.dto.Profile;
 import org.example.dto.Terminal;
 import org.example.enums.TerminalStatus;
+import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class TerminalRepository {
 
     public boolean createTerminal(Terminal terminal){

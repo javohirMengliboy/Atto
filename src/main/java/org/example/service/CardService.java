@@ -5,11 +5,15 @@ import org.example.dto.Card;
 import org.example.dto.Profile;
 import org.example.enums.CardStatus;
 import org.example.repository.CardRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Service
 public class CardService {
+    @Autowired
     private CardRepository cardRepository ;
 
     public void checkAttoCardForCreate(Card card){
@@ -203,12 +207,6 @@ public class CardService {
         System.out.println("Atto Balance = "+balance);
     }
 
-    public CardRepository getCardRepository() {
-        return cardRepository;
-    }
 
-    public void setCardRepository(CardRepository cardRepository) {
-        this.cardRepository = cardRepository;
-    }
 
 }

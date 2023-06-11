@@ -8,13 +8,20 @@ import org.example.dto.Profile;
 import org.example.enums.ProfileRole;
 import org.example.enums.ProfileStatus;
 import org.example.repository.ProfileRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ProfileService {
+    @Autowired
     private MainController mainController;
+    @Autowired
     private AdminController adminController;
+    @Autowired
     private UserController userController;
+    @Autowired
     private ProfileRepository profileRepository;
 
     public void addProfile(Profile profile) {
@@ -136,38 +143,6 @@ public class ProfileService {
         }else {
             System.out.println("Status not changed");
         }
-    }
-
-    public MainController getMainController() {
-        return mainController;
-    }
-
-    public void setMainController(MainController mainController) {
-        this.mainController = mainController;
-    }
-
-    public AdminController getAdminController() {
-        return adminController;
-    }
-
-    public void setAdminController(AdminController adminController) {
-        this.adminController = adminController;
-    }
-
-    public UserController getUserController() {
-        return userController;
-    }
-
-    public void setUserController(UserController userController) {
-        this.userController = userController;
-    }
-
-    public ProfileRepository getProfileRepository() {
-        return profileRepository;
-    }
-
-    public void setProfileRepository(ProfileRepository profileRepository) {
-        this.profileRepository = profileRepository;
     }
 
 }

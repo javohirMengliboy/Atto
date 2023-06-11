@@ -4,10 +4,14 @@ import org.example.container.ComponentContainer;
 import org.example.dto.Terminal;
 import org.example.enums.TerminalStatus;
 import org.example.repository.TerminalRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class TerminalService {
+    @Autowired
     private TerminalRepository terminalRepository;
     public void createTerminal(String code, String address){
         Terminal temp = terminalRepository.getTerminal(code);
@@ -105,14 +109,6 @@ public class TerminalService {
         }else {
             System.out.println("Terminal not deleted");
         }
-    }
-
-    public TerminalRepository getTerminalRepository() {
-        return terminalRepository;
-    }
-
-    public void setTerminalRepository(TerminalRepository terminalRepository) {
-        this.terminalRepository = terminalRepository;
     }
 
 }

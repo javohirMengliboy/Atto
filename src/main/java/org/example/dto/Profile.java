@@ -2,7 +2,6 @@ package org.example.dto;
 
 import org.example.enums.ProfileRole;
 import org.example.enums.ProfileStatus;
-
 import java.time.LocalDateTime;
 
 public class Profile {

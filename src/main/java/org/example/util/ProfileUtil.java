@@ -4,14 +4,13 @@ import org.example.container.ComponentContainer;
 import org.example.dto.Profile;
 import org.example.enums.ProfileRole;
 import org.example.enums.ProfileStatus;
-import org.example.repository.CardRepository;
 import org.example.service.ProfileService;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-import java.util.Scanner;
-
+@Component
 public class ProfileUtil {
+    @Autowired
     private ProfileService profileService;
 
     public void createUser(){
@@ -75,13 +74,5 @@ public class ProfileUtil {
         String phone = ComponentContainer.stringScanner.next();
 
         profileService.checkProfileByPhone(phone);
-    }
-
-    public ProfileService getProfileService() {
-        return profileService;
-    }
-
-    public void setProfileService(ProfileService profileService) {
-        this.profileService = profileService;
     }
 }

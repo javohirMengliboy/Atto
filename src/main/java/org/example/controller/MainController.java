@@ -8,10 +8,16 @@ import org.example.repository.CardRepository;
 import org.example.repository.DBRepository;
 import org.example.repository.ProfileRepository;
 import org.example.service.ProfileService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
-public class MainController {
+@Controller
+public class MainController{
+    @Autowired
     private ProfileRepository profileRepository ;
+    @Autowired
     private CardRepository cardRepository;
+    @Autowired
     private ProfileService profileService;
 
     public void start(){
@@ -109,27 +115,4 @@ public class MainController {
                 """);
     }
 
-    public CardRepository getCardRepository() {
-        return cardRepository;
-    }
-
-    public void setCardRepository(CardRepository cardRepository) {
-        this.cardRepository = cardRepository;
-    }
-
-    public ProfileRepository getProfileRepository() {
-        return profileRepository;
-    }
-
-    public void setProfileRepository(ProfileRepository profileRepository) {
-        this.profileRepository = profileRepository;
-    }
-
-    public ProfileService getProfileService() {
-        return profileService;
-    }
-
-    public void setProfileService(ProfileService profileService) {
-        this.profileService = profileService;
-    }
 }

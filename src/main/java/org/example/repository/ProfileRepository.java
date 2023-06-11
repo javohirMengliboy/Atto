@@ -1,15 +1,16 @@
 package org.example.repository;
 
-import org.example.container.ComponentContainer;
+
 import org.example.dto.Profile;
 import org.example.enums.ProfileRole;
 import org.example.enums.ProfileStatus;
-
+import org.springframework.stereotype.Repository;
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class ProfileRepository {
     public boolean addProfile(Profile profile){
         Connection connection = DBConnection.getConnection();

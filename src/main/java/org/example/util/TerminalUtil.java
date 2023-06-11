@@ -2,8 +2,12 @@ package org.example.util;
 
 import org.example.container.ComponentContainer;
 import org.example.service.TerminalService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class TerminalUtil {
+    @Autowired
     private TerminalService terminalService;
     public void createTerminal(){
         System.out.println("Enter Terminal code");
@@ -40,11 +44,4 @@ public class TerminalUtil {
         terminalService.deleteTerminal(code);
     }
 
-    public TerminalService getTerminalService() {
-        return terminalService;
-    }
-
-    public void setTerminalService(TerminalService terminalService) {
-        this.terminalService = terminalService;
-    }
 }

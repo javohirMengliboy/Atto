@@ -8,16 +8,24 @@ import org.example.service.TransactionService;
 import org.example.util.CardUtil;
 import org.example.util.ProfileUtil;
 import org.example.util.TerminalUtil;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
+@Controller
 public class AdminController {
+    @Autowired
     private CardUtil cardUtil ;
+    @Autowired
     private CardService cardService ;
+    @Autowired
     private TerminalUtil terminalUtil;
+    @Autowired
     private TerminalService terminalService;
+    @Autowired
     private ProfileService profileService;
+    @Autowired
     private ProfileUtil profileUtil;
+    @Autowired
     private TransactionService transactionService;
     public void adminPage(){
         while (true){
@@ -112,59 +120,4 @@ public class AdminController {
                 """);
     }
 
-    public CardUtil getCardUtil() {
-        return cardUtil;
-    }
-
-    public void setCardUtil(CardUtil cardUtil) {
-        this.cardUtil = cardUtil;
-    }
-
-    public CardService getCardService() {
-        return cardService;
-    }
-
-    public void setCardService(CardService cardService) {
-        this.cardService = cardService;
-    }
-
-    public TerminalUtil getTerminalUtil() {
-        return terminalUtil;
-    }
-
-    public void setTerminalUtil(TerminalUtil terminalUtil) {
-        this.terminalUtil = terminalUtil;
-    }
-
-    public TerminalService getTerminalService() {
-        return terminalService;
-    }
-
-    public void setTerminalService(TerminalService terminalService) {
-        this.terminalService = terminalService;
-    }
-
-    public ProfileService getProfileService() {
-        return profileService;
-    }
-
-    public void setProfileService(ProfileService profileService) {
-        this.profileService = profileService;
-    }
-
-    public ProfileUtil getProfileUtil() {
-        return profileUtil;
-    }
-
-    public void setProfileUtil(ProfileUtil profileUtil) {
-        this.profileUtil = profileUtil;
-    }
-
-    public TransactionService getTransactionService() {
-        return transactionService;
-    }
-
-    public void setTransactionService(TransactionService transactionService) {
-        this.transactionService = transactionService;
-    }
 }

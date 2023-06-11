@@ -2,20 +2,17 @@ package org.example.util;
 
 import org.example.container.ComponentContainer;
 import org.example.dto.Card;
-import org.example.dto.Profile;
-import org.example.dto.Terminal;
-import org.example.dto.Transaction;
-import org.example.enums.TransactionType;
 import org.example.repository.CardRepository;
 import org.example.service.CardService;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-import java.util.List;
-import java.util.Scanner;
 
+@Component
 public class CardUtil {
+    @Autowired
     private CardRepository cardRepository;
+    @Autowired
     private CardService cardService;
     public void createAttoCard(){
 
@@ -94,19 +91,4 @@ public class CardUtil {
         cardService.deleteCard(number);
     }
 
-    public CardService getCardService() {
-        return cardService;
-    }
-
-    public void setCardService(CardService cardService) {
-        this.cardService = cardService;
-    }
-
-    public CardRepository getCardRepository() {
-        return cardRepository;
-    }
-
-    public void setCardRepository(CardRepository cardRepository) {
-        this.cardRepository = cardRepository;
-    }
 }
